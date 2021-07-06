@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/saudations.dart';
-import 'screens/home/home.dart';
-import 'screens/login/login.dart';
+import 'screens/home.dart';
+import 'screens/login.dart';
 import 'screens/register.dart';
 
 class Routes {

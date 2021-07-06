@@ -1,5 +1,6 @@
 import 'dart:convert' show json, utf8;
 import 'package:http/http.dart' as http;
+import 'package:duolegends/src/settings/connection_settings.dart';
 
 class ApiResponse {
   late http.BaseRequest? request;
@@ -9,8 +10,6 @@ class ApiResponse {
 }
 
 class Api extends ApiResponse {
-  static const String? _origin = 'http://10.0.2.2:4000';
-
   static Future<ApiResponse> get(String? path) async {
     final Uri? url = _getUrl(path);
     final http.Response response = await http.get(url!);
@@ -32,7 +31,7 @@ class Api extends ApiResponse {
     return _getResponses(response);
   }
 
-  static Uri _getUrl(String? path) => Uri.parse(_origin! + path!);
+  static Uri _getUrl(String? path) => Uri.parse(ConnectionSettings.httpApiOrigin + path!);
 
   static ApiResponse _getResponses(http.Response? responseData) {
     final ApiResponse apiResponse = new ApiResponse();
