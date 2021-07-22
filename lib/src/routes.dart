@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/saudations.dart';
 import 'screens/home.dart';
 import 'screens/login.dart';
-import 'screens/register.dart';
+import 'screens/register/register.dart';
 
 class Routes {
   static generateRoutes(settings) {

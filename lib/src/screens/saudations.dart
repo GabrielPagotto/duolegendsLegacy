@@ -6,7 +6,8 @@ class Saudations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(40),
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(color: Theme.of(context).primaryColorDark),
         child: Column(
           children: [
             Spacer(),
@@ -15,34 +16,44 @@ class Saudations extends StatelessWidget {
                 children: [
                   Container(
                     child: Text(
-                      'Encontre milhares de pessoas para jogar League of Legends.',
-                      textScaleFactor: 2,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+                      'Bem-vindo(a) ao Duolegends',
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Junte-se a milhares de jogares de League of Legends que estão em busca de uma parceiro para jogar e encontrar novas amizades.',
+                      style: Theme.of(context).textTheme.headline2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   Container(
                     width: double.infinity,
                     child: ElevatedButton(
-                      child: Text('Cadastrar-se'),
+                      child: Text('Registre-se'),
                       onPressed: () => Navigator.pushNamed(context, '/register'),
                     ),
                   ),
                 ],
               ),
             ),
-            Spacer(),
             Container(
-              child: Row(
-                children: [
-                  Text('Já possui uma conta?'),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('Entrar'),
+              width: double.infinity,
+              child: ElevatedButton(
+                child: Text('Entrar'),
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColorDark),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      side: BorderSide(width: 1, color: Theme.of(context).primaryColor),
+                    ),
                   ),
-                ],
+                ),
               ),
             ),
           ],

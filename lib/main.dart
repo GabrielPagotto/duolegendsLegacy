@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'src/app.dart';
-import 'src/providers/_providers.dart';
-import 'src/lang/language.dart';
-
-final Language dialogues = new Language(languageRegion: 'pt-br');
+import 'package:duolegends/src/application.dart';
+import 'package:duolegends/src/providers/_providers.dart';
+import 'package:duolegends/src/screens/statement_managers.dart';
 
 void main() async {
   runApp(
-    MultiProvider(providers: providers, child: App()),
+    MultiProvider(providers: providerss..addAll(providers), child: Application()),
   );
 }

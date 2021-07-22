@@ -1,10 +1,10 @@
-import 'package:duolegends/src/validators/user_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:duolegends/src/validators/user_validator.dart';
+import 'package:duolegends/src/screens/register/register_state.dart';
 import 'package:duolegends/src/apis/http_api.dart';
 import 'package:duolegends/src/components/bottom_bar_component.dart';
 import 'package:duolegends/src/components/form_component.dart';
-import 'package:duolegends/src/providers/register_state.dart';
 import 'package:duolegends/src/components/app_body_component.dart';
 import 'package:duolegends/src/components/top_bar_component.dart';
 
@@ -19,62 +19,68 @@ class _RegisterState extends State<Register> {
     final RegisterState registerState = context.watch<RegisterState>();
 
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColorDark,
       body: AppBodyComponent(
         topBar: TopBarComponent(
           title: 'Realizar cadastro',
         ),
         child: Container(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(10),
+          color: Theme.of(context).primaryColorDark,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             physics: BouncingScrollPhysics(),
             child: Form(
               child: FormComponent(
                 title: 'INFORME OS DADOS DE CADASTRO',
-                inputs: [
+                children: [
                   TextFormField(
                     initialValue: registerState.username,
                     onChanged: (value) => registerState.changeUsername(value),
                     keyboardType: TextInputType.name,
+                    style: Theme.of(context).textTheme.bodyText2,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
                       hintText: 'Nome de usuário',
                     ),
                   ),
+                  SizedBox(height: 10),
                   TextFormField(
                     initialValue: registerState.name,
                     onChanged: (value) => registerState.changeName(value),
                     keyboardType: TextInputType.name,
+                    style: Theme.of(context).textTheme.bodyText2,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person_outline),
                       hintText: 'Nome',
                     ),
                   ),
+                  SizedBox(height: 10),
                   TextFormField(
                     initialValue: registerState.lastName,
                     onChanged: (value) => registerState.changeLastName(value),
                     keyboardType: TextInputType.name,
+                    style: Theme.of(context).textTheme.bodyText2,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person_pin_outlined),
                       hintText: 'Sobrenome',
                     ),
                   ),
+                  SizedBox(height: 10),
                   TextFormField(
                     initialValue: registerState.email,
                     onChanged: (value) => registerState.changeEmail(value),
                     keyboardType: TextInputType.emailAddress,
+                    style: Theme.of(context).textTheme.bodyText2,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
                       hintText: 'Email',
                     ),
                   ),
+                  SizedBox(height: 10),
                   TextFormField(
                     initialValue: registerState.password,
                     onChanged: (value) => registerState.changePassword(value),
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
+                    style: Theme.of(context).textTheme.bodyText2,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
                       hintText: 'Senha',
                     ),
                   ),

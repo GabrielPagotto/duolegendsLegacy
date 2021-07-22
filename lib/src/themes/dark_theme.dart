@@ -8,39 +8,48 @@ class DarkTheme {
     colors!.dark();
 
     return ThemeData(
-      scaffoldBackgroundColor: colors.primary!,
-      splashColor: colors.secondary!,
-      accentColor: colors.secondary!,
-      primaryColor: colors.quaternary!,
-      buttonColor: colors.primary,
-      textTheme: TextTheme(
-        bodyText2: TextStyle(color: colors.quintenary),
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          padding: MaterialStateProperty.resolveWith((states) => EdgeInsets.zero),
-          foregroundColor: MaterialStateProperty.resolveWith((states) => colors.tertiary),
-        ),
-      ),
+      primaryColor: colors.primary,
+      primaryColorDark: colors.tertiary,
+      primaryColorLight: colors.quaternary,
+      backgroundColor: colors.primary,
+      splashColor: colors.secondary,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith((states) => colors.quintenary),
-          foregroundColor: MaterialStateProperty.resolveWith((states) => colors.tertiary),
-          padding: MaterialStateProperty.resolveWith((states) => EdgeInsets.symmetric(vertical: 20)),
-          shape: MaterialStateProperty.resolveWith((states) => RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-              )),
+          backgroundColor: MaterialStateProperty.all(colors.secondary),
+          textStyle: MaterialStateProperty.all(TextStyle(color: colors.primary)),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+            side: BorderSide(width: 1, color: colors.secondary),
+          )),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(50),
-          borderSide: BorderSide(width: 2, color: colors.quaternary!),
+          borderRadius: BorderRadius.circular(5),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(50),
-          borderSide: BorderSide(width: 2, color: colors.secondary!),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            width: 2,
+            color: colors.secondary,
+          ),
         ),
+        filled: true,
+        fillColor: colors.quaternary,
+        hintStyle: TextStyle(
+          color: colors.quintenary,
+          fontSize: 18,
+        ),
+      ),
+      iconTheme: IconThemeData(
+        color: colors.sextenary,
+        size: 18,
+      ),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(color: colors.quintenary, fontSize: 16),
+        bodyText2: TextStyle(color: colors.sextenary, fontSize: 16),
+        headline6: TextStyle(color: colors.sextenary, fontSize: 26),
+        headline2: TextStyle(color: colors.quintenary, fontSize: 16),
       ),
     );
   }

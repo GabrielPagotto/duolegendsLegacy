@@ -36,10 +36,11 @@ class Api extends ApiResponse {
   static ApiResponse _getResponses(http.Response? responseData) {
     final ApiResponse apiResponse = new ApiResponse();
 
-    apiResponse.status = responseData!.statusCode;
-    apiResponse.ok = responseData.statusCode == 200 || responseData.statusCode == 201 || responseData.statusCode == 202;
-    apiResponse.request = responseData.request;
-    apiResponse.body = json.decode(utf8.decode(responseData.bodyBytes));
+    apiResponse
+      ..status = responseData!.statusCode
+      ..ok = responseData.statusCode == 200 || responseData.statusCode == 201 || responseData.statusCode == 202
+      ..request = responseData.request
+      ..body = json.decode(utf8.decode(responseData.bodyBytes));
 
     return apiResponse;
   }
